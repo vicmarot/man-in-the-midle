@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build MitM",
+            "type": "shell",
+            "command": "cmake -DCMAKE_BUILD_TYPE=Debug -B${workspaceFolder}/build && cd ${workspaceFolder}/build && make", // Adjust target if necessary
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "dependsOn": [
+                "generate cmake"
+            ]
+        },
+        {
+            "label": "generate cmake",
+            "type": "shell",
+            "command": "cmake ${workspaceFolder}"
+        }
+    ]
+}
